@@ -12,35 +12,35 @@ namespace _07_TempoDownload
             bool digitacaoValida = false;
 
             while (!digitacaoValida)
-                 {
+            {
                 Console.Write("Informe o tamanho do arquivo (MB): ");
                 digitacaoValida = double.TryParse(Console.ReadLine(), NumberStyles.Float, CultureInfo.InvariantCulture, out tamanhoMB);
 
                 if (!digitacaoValida || tamanhoMB <= 0)
-            {
-                    Console.WriteLine("Valor inválido! Digite um número maior que zero.");
+                {
+                    Console.WriteLine(string.Format("Valor inválido! Digite um número maior que zero."));
                     digitacaoValida = false;
-            }
                 }
-           
-            
+            }
+
+            digitacaoValida = false; 
+
+            while (!digitacaoValida)
             {
                 Console.Write("Informe a velocidade da internet (Mbps): ");
                 digitacaoValida = double.TryParse(Console.ReadLine(), NumberStyles.Float, CultureInfo.InvariantCulture, out velocidadeMbps);
 
                 if (!digitacaoValida || velocidadeMbps <= 0)
                 {
-                    Console.WriteLine("Valor inválido! Digite um número maior que zero.");
+                    Console.WriteLine(string.Format("Valor inválido! Digite um número maior que zero."));
                     digitacaoValida = false;
                 }
             }
 
-            
             double tempoSegundos = (tamanhoMB * 8) / velocidadeMbps;
             double tempoMinutos = tempoSegundos / 60;
 
-            
-            Console.WriteLine($"Tempo aproximado de download: {tempoMinutos:F2} minutos");
+            Console.WriteLine(string.Format("Tempo aproximado de download: {0:F2} minutos", tempoMinutos));
             Console.ReadLine();
         }
     }
